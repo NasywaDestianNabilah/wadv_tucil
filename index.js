@@ -50,8 +50,6 @@ app.get("/students", (req, res) => {
     res.status(200).json(students);
 });
 
-  // TODO: kirim response berisi seluruh array students dengan status 200
-
 // ════════════════════════════════════════════════════════════
 //  ENDPOINT 2 — GET /students/:id
 //  Kembalikan satu mahasiswa berdasarkan id
@@ -70,15 +68,6 @@ app.get("/students/:id", (req, res) => {
 
   res.status(200).json(student);
 });
-
-  // TODO: konversi req.params.id ke integer (gunakan parseInt)
-
-  // TODO: cari mahasiswa di array students yang id-nya cocok
-  //       gunakan .find()
-
-  // TODO: jika tidak ditemukan, kirim 404 + pesan error
-
-  // TODO: jika ditemukan, kirim data mahasiswanya
 
 // ════════════════════════════════════════════════════════════
 //  ENDPOINT 3 — POST /students
@@ -110,20 +99,6 @@ app.post("/students", (req, res) => {
 
   res.status(201).json(newStudent);
 });
-
-  // TODO: validasi — cek apakah name, nim, dan major ada dan tidak kosong
-  //       jika tidak valid → kirim status 400 + { error: "name, nim, dan major wajib diisi" }
-
-
-  // TODO: buat object mahasiswa baru dengan struktur:
-  //       { id: nextId, name, nim, major, gpa: gpa ?? 0 }
-  //       lalu tambah nextId sebesar 1 (nextId++)
-
-
-  // TODO: masukkan mahasiswa baru ke array students (gunakan .push())
-
-
-  // TODO: kirim response status 201 + data mahasiswa baru
 
 // ════════════════════════════════════════════════════════════
 //  ENDPOINT 4 — PUT /students/:id
@@ -163,23 +138,6 @@ app.put("/students/:id", (req, res) => {
   res.status(200).json(students[index]);
 });
 
-  // TODO: cek apakah semua field undefined — jika iya, kirim 400
-
-
-  // TODO: cari index mahasiswa di array dengan .findIndex()
-  //       simpan hasilnya ke variabel "index"
-
-
-  // TODO: jika index === -1 (tidak ditemukan), kirim 404
-
-
-  // TODO: update hanya field yang dikirim (jangan timpa yang tidak dikirim)
-  //       Petunjuk: pakai if (name !== undefined) students[index].name = name
-  //       lakukan hal yang sama untuk nim, major, dan gpa
-
-
-  // TODO: kirim response status 200 + data mahasiswa yang sudah diupdate
-
 // ════════════════════════════════════════════════════════════
 //  ENDPOINT 5 — DELETE /students/:id
 //  Hapus mahasiswa berdasarkan id
@@ -201,17 +159,6 @@ app.delete("/students/:id", (req, res) => {
 
   res.status(204).send();
 });
-
-  // TODO: cari index mahasiswa dengan .findIndex()
-
-
-  // TODO: jika tidak ditemukan (index === -1), kirim 404
-
-
-  // TODO: hapus mahasiswa dari array menggunakan .splice(index, 1)
-
-
-  // TODO: kirim response status 204 tanpa body (gunakan .send())
 
 // ════════════════════════════════════════════════════════════
 //  BONUS — GET /students/search?major=...
